@@ -5,12 +5,11 @@ import (
 	"encoding/binary"
 	"errors"
 	"io"
-	"log"
 	"net"
 	"time"
 )
 
-// Copied pretty much from github.com/bearbin/mcgorcon, but with some minor modifications
+// Copied pretty much from github.com/Kelwing/mc-rcon, but with some minor modifications
 
 const (
 	BadAuth        = -1
@@ -38,7 +37,7 @@ type RCONHeader struct {
 }
 
 func (c *MCConn) Open(addr, password string) error {
-	log.Println("Dial " + addr)
+	//log.Println("Dial " + addr)
 	conn, err := net.DialTimeout("tcp", addr, 10*time.Second)
 	if err != nil {
 		return err
